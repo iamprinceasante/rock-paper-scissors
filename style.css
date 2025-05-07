@@ -35,3 +35,11 @@ body {
   justify-content: space-around;
   gap: 20px;
 }
+
+.choice {
+  display: none;
+}
+
+#reset {
+  display: none;
+}
