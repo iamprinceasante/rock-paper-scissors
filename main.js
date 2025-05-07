@@ -1,1 +1,3 @@
-console.log("Rock, Paper, Scissors");
+const start_game = () => {
+  //   alert("Something");
+};
