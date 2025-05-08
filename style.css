@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
@@ -45,10 +44,19 @@ body {
   display: none;
 }
 
-.image {
+.choices {
   height: 240px;
   width: 240px;
   border-radius: 12px;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+}
+
+.shadow {
   box-shadow: 4px 4px 5px 4px #d1d3d3;
 }
 
@@ -58,4 +66,8 @@ body {
 
 .human {
   box-shadow: 4px 4px 5px 4px #acebf3;
+}
+
+.draw {
+  box-shadow: 4px 4px 5px 4px #ecf3ac;
 }

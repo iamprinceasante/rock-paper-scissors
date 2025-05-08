@@ -1,6 +1,8 @@
 // Get human choice
-const choices = document.querySelectorAll(".choices");
-choices.forEach((e) => {
+const human_choices = document.querySelectorAll(".choices");
+const images = document.querySelectorAll(".image");
+
+human_choices.forEach((e) => {
   e.addEventListener("click", () => {
     // Kick start
     start_game(e.id);
@@ -8,7 +10,6 @@ choices.forEach((e) => {
     // Disable all options
     choices.forEach((choice) => {
       choice.style.pointerEvents = "none";
-      choice.style.opacity = "0.7"; // Optional: make them look disabled
     });
   });
 });
@@ -70,9 +71,15 @@ const start_game = (user_choice) => {
   document.querySelector(".results-container").innerHTML = results[0].message;
 
   // Show choices
-  document.querySelector("#human").innerHTML = user_choice;
-  document.querySelector("#computer").innerHTML = computer_choice;
-  document.querySelector(".choice").style.display = "block";
+  images.forEach((e) => {
+    e.classList.remove("shadow");
+  });
+  if (results[0].message !== "Draw") {
+    document.querySelector(`.${user_choice}`).classList.add("human");
+    document.querySelector(`.${computer_choice}`).classList.add("computer");
+  } else {
+    document.querySelector(`.${user_choice}`).classList.add("draw");
+  }
 
   // Show reset button
   document.querySelector("#reset").style.display = "block";
