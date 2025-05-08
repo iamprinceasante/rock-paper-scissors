@@ -33,7 +33,8 @@ body {
 .images-container {
   display: flex;
   justify-content: space-around;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .choice {
@@ -42,4 +43,19 @@ body {
 
 #reset {
   display: none;
+}
+
+.image {
+  height: 240px;
+  width: 240px;
+  border-radius: 12px;
+  box-shadow: 4px 4px 5px 4px #d1d3d3;
+}
+
+.computer {
+  box-shadow: 4px 4px 5px 4px #ffb1b1;
+}
+
+.human {
+  box-shadow: 4px 4px 5px 4px #acebf3;
 }
