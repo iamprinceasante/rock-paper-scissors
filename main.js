@@ -3,6 +3,8 @@ const human_choices = document.querySelectorAll(".choices");
 const all_images = document.querySelectorAll(".image");
 const reset_button = document.querySelector("#reset");
 const results_container = document.querySelector(".results-container");
+const human_score_div = document.querySelector("#human-score");
+const computer_score_div = document.querySelector("#computer-score");
 
 // Computer choice
 const computer_options = ["rock", "paper", "scissors"];
@@ -47,6 +49,10 @@ const possible_outcomes = [
     message: "Draw",
   },
 ];
+
+// Scores
+let human_score = 0;
+let computer_score = 0;
 
 // User click function
 const userClick = (e) => {
@@ -93,6 +99,15 @@ const start_game = (user_choice) => {
     document.querySelector(`.${computer_choice}`).classList.add("computer");
   } else {
     document.querySelector(`.${user_choice}`).classList.add("draw");
+  }
+
+  // Update Score
+  if (results[0].message === "You win") {
+    human_score++;
+    human_score_div.innerHTML = human_score;
+  } else if (results[0].message === "You lose") {
+    computer_score++;
+    computer_score_div.innerHTML = computer_score;
   }
 
   // Show reset button
