@@ -69,6 +69,13 @@ const start_game = (user_choice) => {
 
   // Show results
   document.querySelector(".results-container").innerHTML = results[0].message;
+  if (results[0].message === "Draw") {
+    document.querySelector(".results-container").style.color = "#d7eb23";
+  } else if (results[0].message === "You win") {
+    document.querySelector(".results-container").style.color = "#50da19";
+  } else {
+    document.querySelector(".results-container").style.color = "#f02c2c";
+  }
 
   // Show choices
   images.forEach((e) => {
