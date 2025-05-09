@@ -41,8 +41,11 @@ body {
   display: none;
 }
 
-#reset {
+.hide {
   display: none;
+}
+.display {
+  display: block;
 }
 
 .choices {
@@ -76,4 +79,10 @@ body {
 .results-container {
   font-size: 40px;
   min-height: 45px;
+}
+
+.scores-container {
+  display: flex;
+  flex-direction: column;
+  column-gap: 10px;
 }

@@ -1,22 +1,27 @@
 // Get human choice
 const human_choices = document.querySelectorAll(".choices");
 const images = document.querySelectorAll(".image");
+const reset_button = document.querySelector("#reset");
+const results_container = document.querySelector(".results-container");
 
-human_choices.forEach((e) => {
+// Handle Human Choice
+const userClick = (e) => {
   e.addEventListener("click", () => {
-    // Kick start
     start_game(e.id);
-
-    // Disable all options
-    choices.forEach((choice) => {
+    human_choices.forEach((choice) => {
       choice.style.pointerEvents = "none";
     });
   });
+};
+
+human_choices.forEach((e) => {
+  userClick(e);
 });
 
 // Get computer choice
 const computer_options = ["rock", "paper", "scissors"];
 
+// Possible outcomes
 const possible_outcomes = [
   {
     option: ["rock", "scissors"],
@@ -88,10 +93,32 @@ const start_game = (user_choice) => {
     document.querySelector(`.${user_choice}`).classList.add("draw");
   }
 
+  // Scores
+
   // Show reset button
-  document.querySelector("#reset").style.display = "block";
+  reset_button.classList.replace("hide", "display");
 };
 
 const reset_game = () => {
-  window.location.reload();
+  console.log(images);
+
+  // Reset visuals
+  images.forEach((e) => {
+    e.classList.remove("human");
+    e.classList.remove("computer");
+    e.classList.remove("draw");
+    e.classList.add("shadow");
+  });
+  console.log(images);
+
+  // Reset result text
+  results_container.innerHTML = "";
+
+  // Allow clicks again
+  human_choices.forEach((choice) => {
+    choice.style.pointerEvents = "auto";
+  });
+
+  // Hide reset button again (optional if needed)
+  reset_button.classList.replace("display", "hide");
 };

@@ -10,24 +10,31 @@
     <h2 class="header">Rock, Paper, Scissors</h2>
     <div class="main-container">
       <div class="images-container">
-        <div id="rock" class="choices rock">
-          <img src="./images/rock.png" alt="rock" class="image shadow" />
+        <div id="rock" class="choices">
+          <img src="./images/rock.png" alt="rock" class="image shadow rock" />
         </div>
-        <div id="paper" class="choices paper">
-          <img src="./images/paper.png" alt="paper" class="image shadow" />
+        <div id="paper" class="choices">
+          <img
+            src="./images/paper.png"
+            alt="paper"
+            class="image shadow paper"
+          />
         </div>
-        <div id="scissors" class="choices scissors">
+        <div id="scissors" class="choices">
           <img
             src="./images/scissors.png"
             alt="scissors"
-            class="image shadow"
+            class="image shadow scissors"
           />
         </div>
       </div>
       <div class="results-container"></div>
-      <div class="scores-container">Scores</div>
+      <div class="scores-container">
+        <span>Human Score: <span id="human-score"></span></span>
+        <span>Computer Score: <span id="computer-score"></span></span>
+      </div>
       <div class="btns">
-        <button id="reset" onclick="reset_game()">Reset</button>
+        <button id="reset" onclick="reset_game()" class="hide">Reset</button>
       </div>
     </div>
   </body>
