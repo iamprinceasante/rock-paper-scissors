@@ -5,84 +5,113 @@
 
 html {
   font-family: sans-serif;
+  background-color: black;
+  color: aqua;
 }
 
 body {
   margin: 0 auto;
+  padding: 40px;
   max-width: 1280px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 60px;
+  gap: 10px;
 }
 
-.header {
-  padding-top: 40px;
-}
-
-.main-container {
-  max-width: 900px;
+h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
-  padding: 0 30px;
+  text-transform: uppercase;
 }
 
-.images-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.choice {
-  display: none;
-}
-
-.hide {
-  display: none;
-}
-.display {
-  display: block;
-}
-
-.choices {
-  height: 240px;
-  width: 240px;
-  border-radius: 12px;
-}
-
-.image {
-  height: 100%;
+.separator {
+  height: 1px;
+  min-width: 100%;
   width: 100%;
-  border-radius: 12px;
+  background-color: aqua;
 }
 
-.shadow {
-  box-shadow: 4px 4px 5px 4px #d1d3d3;
+.game-area {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  min-width: 100%;
+  width: 100%;
+  gap: 16px;
 }
 
-.computer {
-  box-shadow: 4px 4px 5px 4px #ffb1b1;
+.players-container {
+  border: 1px solid aqua;
+  min-height: 400px;
 }
 
-.human {
-  box-shadow: 4px 4px 5px 4px #c0f3ac;
+.cover {
+  padding: 2px;
+  background-color: aqua;
 }
 
-.draw {
-  box-shadow: 4px 4px 5px 4px #ecf3ac;
+.player-name {
+  text-align: center;
+  background-color: aqua;
+  border: 1px solid black;
+  color: black;
+  padding: 6px;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
-.results-container {
-  font-size: 40px;
-  min-height: 45px;
-}
-
-.scores-container {
+.choices-container {
+  padding: 10px;
   display: flex;
   flex-direction: column;
-  column-gap: 10px;
+  align-items: center;
+}
+
+.options-wrapper {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.options-container {
+  border: 1px solid aqua;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.scores {
+  width: auto;
+  width: 120px;
+}
+
+.score-container {
+  text-align: center;
+  background-color: aqua;
+  border: 1px solid black;
+  color: black;
+  padding: 6px;
+  font-size: 20px;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.score {
+  display: block;
+  min-width: 16px;
 }
