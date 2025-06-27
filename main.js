@@ -1,10 +1,8 @@
 // Select DOM Element
-const human_choices = document.querySelectorAll(".choices");
-const all_images = document.querySelectorAll(".image");
-const reset_button = document.querySelector("#reset");
-const results_container = document.querySelector(".results-container");
-const human_score_div = document.querySelector("#human-score");
-const computer_score_div = document.querySelector("#computer-score");
+const human_choices = document.querySelectorAll(".option");
+const human_score_div = document.querySelector(".player-score");
+const computer_score_div = document.querySelector(".computer-score");
+const results_div = document.querySelector(".results-container");
 
 // Computer choice
 const computer_options = ["rock", "paper", "scissors"];
@@ -58,9 +56,6 @@ let computer_score = 0;
 const userClick = (e) => {
   e.addEventListener("click", () => {
     start_game(e.id);
-    human_choices.forEach((choice) => {
-      choice.style.pointerEvents = "none";
-    });
   });
 };
 
@@ -76,61 +71,19 @@ const start_game = (user_choice) => {
 
   // Determine outcome based on human and computer choice
   const choices = [user_choice, computer_choice];
-  const results = possible_outcomes.filter((outcome) => {
+  const results = possible_outcomes.find((outcome) => {
     return JSON.stringify(outcome.option) === JSON.stringify(choices);
   });
 
-  // Display result message and color
-  results_container.innerHTML = results[0].message;
-  if (results[0].message === "Draw") {
-    document.querySelector(".results-container").style.color = "#d7eb23";
-  } else if (results[0].message === "You win") {
-    document.querySelector(".results-container").style.color = "#50da19";
-  } else {
-    document.querySelector(".results-container").style.color = "#f02c2c";
-  }
-
-  // Update image styles to reflect choices
-  all_images.forEach((e) => {
-    e.classList.remove("shadow");
-  });
-  if (results[0].message !== "Draw") {
-    document.querySelector(`.${user_choice}`).classList.add("human");
-    document.querySelector(`.${computer_choice}`).classList.add("computer");
-  } else {
-    document.querySelector(`.${user_choice}`).classList.add("draw");
-  }
-
   // Update Score
-  if (results[0].message === "You win") {
+  if (results.message === "You win") {
     human_score++;
     human_score_div.innerHTML = human_score;
-  } else if (results[0].message === "You lose") {
+  } else if (results.message === "You lose") {
     computer_score++;
     computer_score_div.innerHTML = computer_score;
   }
 
-  // Show reset button
-  reset_button.classList.replace("hide", "display");
-};
-
-const reset_game = () => {
-  // Reset visuals
-  all_images.forEach((e) => {
-    e.classList.remove("human");
-    e.classList.remove("computer");
-    e.classList.remove("draw");
-    e.classList.add("shadow");
-  });
-
-  // Reset result text
-  results_container.innerHTML = "";
-
-  // Allow clicks again
-  human_choices.forEach((choice) => {
-    choice.style.pointerEvents = "auto";
-  });
-
-  // Hide reset button again (optional if needed)
-  reset_button.classList.replace("display", "hide");
+  // Show results
+  results_div.innerHTML = results.message;
 };
