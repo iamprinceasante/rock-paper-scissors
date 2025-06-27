@@ -3,6 +3,10 @@ const human_choices = document.querySelectorAll(".option");
 const human_score_div = document.querySelector(".player-score");
 const computer_score_div = document.querySelector(".computer-score");
 const results_div = document.querySelector(".results-container");
+const human_choices_div = document.querySelector(".human-choices-container");
+const computer_choices_div = document.querySelector(
+  ".computer-choices-container"
+);
 
 // Computer choice
 const computer_options = ["rock", "paper", "scissors"];
@@ -86,4 +90,16 @@ const start_game = (user_choice) => {
 
   // Show results
   results_div.innerHTML = results.message;
+
+  // Show human choice and computer choice
+  for (let i = 0; i < choices.length; i++) {
+    let new_element = document.createElement("div");
+    new_element.innerHTML = choices[i];
+    new_element.style.textTransform = "capitalize";
+    if (i === 0) {
+      human_choices_div.appendChild(new_element);
+    } else {
+      computer_choices_div.appendChild(new_element);
+    }
+  }
 };
