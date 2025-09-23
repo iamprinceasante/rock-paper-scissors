@@ -93,12 +93,19 @@ const start_game = (user_choice) => {
 
   // Show human choice and computer choice
   for (let i = 0; i < choices.length; i++) {
-    let new_element = document.createElement("div");
-    new_element.innerHTML = choices[i];
-    new_element.style.textTransform = "capitalize";
+    let new_element = document.createElement("img");
+    new_element.setAttribute("src", `./images/${choices[i]}.png`);
+    new_element.setAttribute("alt", `${choices[i]}`);
+    new_element.setAttribute("class", `option`);
     if (i === 0) {
+      if (results.message === "You lose") {
+        new_element.style.opacity = 0.5;
+      }
       human_choices_div.appendChild(new_element);
     } else {
+      if (results.message === "You win") {
+        new_element.style.opacity = 0.2;
+      }
       computer_choices_div.appendChild(new_element);
     }
   }
