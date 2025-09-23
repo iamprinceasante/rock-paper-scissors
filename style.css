@@ -85,7 +85,7 @@ h2 {
   width: 100%;
   padding: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -98,6 +98,8 @@ h2 {
 
 .option {
   cursor: pointer;
+  width: auto;
+  height: 120px;
 }
 
 .scores {
