@@ -38,6 +38,7 @@ h2 {
   grid-template-columns: 1fr 2fr 1fr;
   min-width: 100%;
   width: 100%;
+  max-width: 100dvw;
   gap: 16px;
 }
 
@@ -133,4 +134,24 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (max-width: 840px) {
+  body {
+    padding: 60px 20px;
+  }
+
+  .options-container {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .player-name,
+  .score-container {
+    font-size: 14px;
+  }
+
+  .option {
+    height: 60px;
+  }
 }

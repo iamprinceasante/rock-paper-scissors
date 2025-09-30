@@ -56,6 +56,10 @@ const possible_outcomes = [
 let human_score = 0;
 let computer_score = 0;
 
+// Total Rounds
+const total_rounds = 5;
+let rounds = 0;
+
 // User click function
 const userClick = (e) => {
   e.addEventListener("click", () => {
@@ -70,6 +74,17 @@ human_choices.forEach((e) => {
 
 // Game Start
 const start_game = (user_choice) => {
+  rounds++;
+  let rounds_left = total_rounds - rounds;
+  let score_difference = Math.abs(human_score - computer_score);
+
+  if (rounds_left < score_difference) {
+    if (score_difference !== 0) {
+      alert("We have a winner");
+      return;
+    }
+  }
+
   // Let computer make a choice
   const computer_choice = computer_options[Math.floor(Math.random() * 3)];
 
@@ -94,7 +109,7 @@ const start_game = (user_choice) => {
   // Show human choice and computer choice
   for (let i = 0; i < choices.length; i++) {
     let new_element = document.createElement("img");
-    new_element.setAttribute("src", `./images/${choices[i]}.png`);
+    new_element.setAttribute("src", `./static/images/${choices[i]}.png`);
     new_element.setAttribute("alt", `${choices[i]}`);
     new_element.setAttribute("class", `option`);
     if (i === 0) {
