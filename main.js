@@ -72,19 +72,16 @@ human_choices.forEach((e) => {
   userClick(e);
 });
 
+// Disables human choices
+const disable_choices = () => {
+  human_choices.forEach((e) => {
+    e.style.opacity = 0.2;
+    e.style.pointerEvents = "none";
+  });
+};
+
 // Game Start
 const start_game = (user_choice) => {
-  rounds++;
-  let rounds_left = total_rounds - rounds;
-  let score_difference = Math.abs(human_score - computer_score);
-
-  if (rounds_left < score_difference) {
-    if (score_difference !== 0) {
-      alert("We have a winner");
-      return;
-    }
-  }
-
   // Let computer make a choice
   const computer_choice = computer_options[Math.floor(Math.random() * 3)];
 
@@ -122,6 +119,24 @@ const start_game = (user_choice) => {
         new_element.style.opacity = 0.2;
       }
       computer_choices_div.appendChild(new_element);
+    }
+  }
+
+  // Increasing rounds
+  rounds++;
+
+  let rounds_left = total_rounds - rounds;
+  let score_difference = Math.abs(human_score - computer_score);
+  console.log(computer_score);
+
+  // Checking if rounds are up and we have a winner
+  if (rounds_left < score_difference) {
+    if (human_score > computer_score) {
+      // alert("Game Over! You win!");
+      disable_choices();
+    } else if (computer_score > human_score) {
+      // alert("Game Over! Computer wins!");
+      disable_choices();
     }
   }
 };
